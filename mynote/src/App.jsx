@@ -23,7 +23,7 @@ function App() {
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/register' element={<Register/>}></Route>
           <Route path="/logout" element={<Logout />} />
-          <Route path="/edit/:id" element={<Edit />} />
+          
           <Route path="*" element={<NotFound />}></Route>
           <Route
           path="/"
@@ -33,8 +33,15 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/edit/:id" element={<Edit />} />
-        
+        <Route
+          path="/edit/:id"
+          element={
+            <ProtectedRoute>
+              <Edit />
+            </ProtectedRoute>
+          }
+        />
+
         </Routes>
       </BrowserRouter>
     </>
